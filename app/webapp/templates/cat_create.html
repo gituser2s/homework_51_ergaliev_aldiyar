@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Article Create</title>
+</head>
+<body>
+<h1>Вас приветствует симулятор кота для начала введите имя кота</h1>
+<div class="form">
+    <form action="/article/add/" method="post">
+        {% csrf_token %}
+        <div class="form_row">
+            <label for="cat_name">Введите имя кота</label>
+            <input type="text" id="cat_name" name="cat_name">
+        </div>
+        <div class="form_row">
+            <input type="submit" value="создать">
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Article</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <img src="{% static 'img/happy_cat.jpg' %}">
+        {% for name in db %}
+            <p>Кот - {{ name }}</p>
+        {% endfor %}
+        <p>Возраст - {{ age }}</p>
+        <p>Уровень счастья - {{ mood }}</p>
+        <p>Уровень сытости - {{ satiety }}</p>
+        <div class="form_row">
+            <select name="user_profile_color_1">
+                 <option value="play">Поиграть с котом</option>
+                 <option value="feed">Покормить кота</option>
+                 <option value="sleep">Уложить кота спать</option>
+            </select>
+        </div>
+        <div class="form_row">
+            <input type="submit" value="Подтвердить">
+        </div>
+    </form>
+</body>
+</html>
